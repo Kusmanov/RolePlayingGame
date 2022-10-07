@@ -29,25 +29,21 @@ abstract class Unit {
         return NAME;
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    public int getHealth() {
+        return health;
     }
 
-    public int getExperience() {
-        return experience;
-    }
+    public void changeHealth(int health) {
+        int MIN_HEALTH = 0;
+        int MAX_HEALTH = 9;
 
-    public void changeExperience(int experience) {
-        int MIN_EXPERIENCE = 1;
-        int MAX_EXPERIENCE = 9;
+        this.health += health;
 
-        this.experience += experience;
-
-        if (this.experience < MIN_EXPERIENCE) {
-            this.experience = MIN_EXPERIENCE;
-        } else if (this.experience > MAX_EXPERIENCE) {
-            this.experience = MAX_EXPERIENCE;
+        if (this.health <= MIN_HEALTH) {
+            isAlive = false;
         }
+
+        this.health = setLimits(MIN_HEALTH, MAX_HEALTH, this.health);
     }
 
     public int getAgility() {
@@ -59,12 +55,7 @@ abstract class Unit {
         int MAX_AGILITY = 9;
 
         this.agility += agility;
-
-        if (this.agility < MIN_AGILITY) {
-            this.agility = MIN_AGILITY;
-        } else if (this.agility > MAX_AGILITY) {
-            this.agility = MAX_AGILITY;
-        }
+        this.agility = setLimits(MIN_AGILITY, MAX_AGILITY, this.agility);
     }
 
     public int getPower() {
@@ -76,35 +67,38 @@ abstract class Unit {
         int MAX_POWER = 9;
 
         this.power += power;
-
-        if (this.power < MIN_POWER) {
-            this.power = MIN_POWER;
-        } else if (this.power > MAX_POWER) {
-            this.power = MAX_POWER;
-        }
+        this.power = setLimits(MIN_POWER, MAX_POWER, this.power);
     }
 
-    public int getHealth() {
-        return health;
+    public int getExperience() {
+        return experience;
     }
 
-    public void changeHealth(int health) {
-        int MIN_HEALTH = 1;
-        int MAX_HEALTH = 9;
+    public void changeExperience(int experience) {
+        int MIN_EXPERIENCE = 1;
+        int MAX_EXPERIENCE = 9;
 
-        this.health += health;
+        this.experience += experience;
+        this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
+    }
 
-        if (this.health < MIN_HEALTH) {
-            isAlive = false;
-        } else if (this.health > MAX_HEALTH) {
-            this.health = MAX_HEALTH;
-        }
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public void attack(Unit unit) {
         if (isAlive) {
             unit.changeHealth(-power);
         }
+    }
+
+    private int setLimits(int min, int max, int val) {
+        if (val < min) {
+            return min;
+        } else if (val > max) {
+            return max;
+        }
+        return val;
     }
 
     @Override
