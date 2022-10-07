@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Class ready: Unit, Hero, Goblin, Skeleton">
+    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Simplified code in the class: Unit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/units/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/units/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/units/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Skeleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Unit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665052206609</updated>
       <workItem from="1665052208132" duration="16507000" />
-      <workItem from="1665113821649" duration="5380000" />
+      <workItem from="1665113821649" duration="7238000" />
     </task>
     <task id="LOCAL-00001" summary="Class ready: Unit, Hero, Goblin, Skeleton">
       <created>1665115965662</created>
@@ -68,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665115965662</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Simplified code in the class: Unit">
+      <created>1665121140973</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665121140973</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,6 +97,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class ready: Unit, Hero, Goblin, Skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="Class ready: Unit, Hero, Goblin, Skeleton" />
+    <MESSAGE value="Simplified code in the class: Unit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified code in the class: Unit" />
   </component>
 </project>

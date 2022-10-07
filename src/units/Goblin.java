@@ -2,7 +2,7 @@ package units;
 
 public class Goblin extends Unit {
     public Goblin(String name) {
-        super(name, 3, 1, 3, 1);
+        super(name, 30, 10, 15, 1);
     }
 
 }

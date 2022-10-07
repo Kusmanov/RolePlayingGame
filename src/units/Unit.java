@@ -1,5 +1,7 @@
 package units;
 
+import java.util.Random;
+
 abstract class Unit {
     private final String NAME;
     private int health;
@@ -35,7 +37,7 @@ abstract class Unit {
 
     public void changeHealth(int health) {
         int MIN_HEALTH = 0;
-        int MAX_HEALTH = 9;
+        int MAX_HEALTH = 100;
 
         this.health += health;
 
@@ -51,8 +53,8 @@ abstract class Unit {
     }
 
     public void changeAgility(int agility) {
-        int MIN_AGILITY = 1;
-        int MAX_AGILITY = 9;
+        int MIN_AGILITY = 10;
+        int MAX_AGILITY = 30;
 
         this.agility += agility;
         this.agility = setLimits(MIN_AGILITY, MAX_AGILITY, this.agility);
@@ -63,8 +65,8 @@ abstract class Unit {
     }
 
     public void changePower(int power) {
-        int MIN_POWER = 1;
-        int MAX_POWER = 9;
+        int MIN_POWER = 10;
+        int MAX_POWER = 30;
 
         this.power += power;
         this.power = setLimits(MIN_POWER, MAX_POWER, this.power);
@@ -76,7 +78,7 @@ abstract class Unit {
 
     public void changeExperience(int experience) {
         int MIN_EXPERIENCE = 1;
-        int MAX_EXPERIENCE = 9;
+        int MAX_EXPERIENCE = 3;
 
         this.experience += experience;
         this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
@@ -87,7 +89,11 @@ abstract class Unit {
     }
 
     public void attack(Unit unit) {
-        if (isAlive) {
+        int random = new Random().nextInt(100);
+
+        System.out.println(random + "\n");
+
+        if (isAlive && agility * 3 > random) {
             unit.changeHealth(-power);
         }
     }
