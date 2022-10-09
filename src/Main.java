@@ -18,6 +18,7 @@ public class Main {
         hero.attack(goblin);
         hero.attack(goblin);
         hero.attack(goblin);
+        hero.attack(goblin);
 
         System.out.println(hero);
         System.out.println(goblin);

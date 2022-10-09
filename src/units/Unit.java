@@ -90,16 +90,28 @@ abstract class Unit {
 
     public void attack(Unit unit) {
         if (isAlive && unit.isAlive()) {
-            int random = new Random().nextInt(100);
+            int r1 = new Random().nextInt(100);
 
-            //System.out.println(random + "\n");
+            if (agility * 3 > r1) {
+                int r2 = new Random().nextInt(100);
 
-            if (agility * 3 > random) {
-                unit.changeHealth(-power);
+                int poke;
+
+                if (experience / 100 * 30 > r2) {
+                    unit.changeHealth(-power * 2);
+                    poke = power * 2;
+                } else {
+                    unit.changeHealth(-power);
+                    poke = power;
+                }
+
+                System.out.println("Poke! -" + poke + "\n");
 
                 if (!unit.isAlive()) {
                     experience += unit.getExperience() / 10;
                 }
+            } else {
+                System.out.println("Miss!" + "\n");
             }
         }
     }
