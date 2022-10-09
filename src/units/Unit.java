@@ -77,8 +77,8 @@ abstract class Unit {
     }
 
     public void changeExperience(int experience) {
-        int MIN_EXPERIENCE = 1;
-        int MAX_EXPERIENCE = 3;
+        int MIN_EXPERIENCE = 10;
+        int MAX_EXPERIENCE = 300;
 
         this.experience += experience;
         this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
@@ -89,12 +89,18 @@ abstract class Unit {
     }
 
     public void attack(Unit unit) {
-        int random = new Random().nextInt(100);
+        if (isAlive && unit.isAlive()) {
+            int random = new Random().nextInt(100);
 
-        System.out.println(random + "\n");
+            //System.out.println(random + "\n");
 
-        if (isAlive && agility * 3 > random) {
-            unit.changeHealth(-power);
+            if (agility * 3 > random) {
+                unit.changeHealth(-power);
+
+                if (!unit.isAlive()) {
+                    experience += unit.getExperience() / 10;
+                }
+            }
         }
     }
 
