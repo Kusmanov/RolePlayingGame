@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Added randomness in attack">
+    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Added points for killing">
+      <change afterPath="$PROJECT_DIR$/src/units/Dealer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Goblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Skeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Unit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +60,7 @@
       <updated>1665052206609</updated>
       <workItem from="1665052208132" duration="16507000" />
       <workItem from="1665113821649" duration="8905000" />
-      <workItem from="1665291839795" duration="1530000" />
+      <workItem from="1665291839795" duration="2222000" />
     </task>
     <task id="LOCAL-00001" summary="Class ready: Unit, Hero, Goblin, Skeleton">
       <created>1665115965662</created>
@@ -87,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665123058302</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added points for killing">
+      <created>1665293649156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665293649156</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +111,7 @@
     <MESSAGE value="Class ready: Unit, Hero, Goblin, Skeleton" />
     <MESSAGE value="Simplified code in the class: Unit" />
     <MESSAGE value="Added randomness in attack" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added randomness in attack" />
+    <MESSAGE value="Added points for killing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added points for killing" />
   </component>
 </project>
