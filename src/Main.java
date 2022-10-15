@@ -6,24 +6,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    private static Dealer dealer = new Dealer("Мэри Кей Эш");
-    private static Goblin goblin;
-    private static Skeleton skeleton;
-
     public static void main(String[] args) {
+
         boolean gameIsRun = true;
 
         showHelloMessage();
 
         Scanner sc = new Scanner(System.in);
         Hero hero = new Hero(sc.nextLine());
+        Dealer dealer = new Dealer("Мэри Кей Эш");
 
         showHeroParam(hero);
         showMainMenu();
 
         while (hero.isAlive() && gameIsRun) {
-            Thread fight = new Thread(new Fight(hero, getMonster()));
             Thread deal = new Thread(new Deal());
+            Thread fight = new Thread(new Fight(hero, getMonster()));
 
             switch (getVal()) {
                 case 1 -> deal.start();
@@ -38,27 +36,29 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
-            showHeroParam(hero);
+            if (gameIsRun) {
+                showHeroParam(hero);
 
-            if (hero.isAlive()) {
-                showMainMenu();
+                if (hero.isAlive()) {
+                    showMainMenu();
+                }
             }
         }
     }
 
     private static Unit getMonster() {
-        goblin = new Goblin("Дмитрий Пучков");
-        skeleton = new Skeleton("Маколей Калкин");
+        Goblin goblin = new Goblin("Дмитрий Пучков");
+        Skeleton skeleton = new Skeleton("Маколей Калкин");
 
         return (new Random().nextInt(2) > 0) ? goblin : skeleton;
     }
 
     private static int getVal() {
         int val = 0;
-        Scanner sc = new Scanner(System.in);
         try {
-            val = sc.nextInt();
-        } catch (Exception ignored) {
+            val = new Scanner(System.in).nextInt();
+        } catch (Exception e) {
+            System.out.println("Введите число: от 1 до 3");
         }
         return val;
     }
@@ -71,12 +71,12 @@ public class Main {
     }
 
     private static void showHeroParam(Hero hero) {
-        System.out.println("Создан " + hero.getUnitType().toLowerCase() + ": " + hero.getName()
+        System.out.println("Герой: " + hero.getName()
                 + "; жизнь: " + hero.getHealth()
                 + "; ловкость: " + hero.getAgility()
                 + "; сила: " + hero.getPower()
                 + "; опыт: " + hero.getExperience()
-                + "; золото: " + hero.getMoney());
+                + "; золото: " + hero.getGold());
     }
 
     private static void showMainMenu() {

@@ -16,30 +16,29 @@ public class Fight implements Runnable {
 
     @Override
     public void run() {
-        if (new Random().nextInt(2) > 0) { //вероятность: кто первым нападет?
+        if (new Random().nextInt(2) > 0) { //вероятность: кто первым нанесет урон?
             System.out.println(hero.getName() + " встретил " + unit.getUnitType().toLowerCase() + "а");
-
-            while (hero.isAlive() && unit.isAlive()) {
-                tryToKick(hero, unit);
-                if (unit.isAlive()) {
-                    tryToKick(unit, hero);
-                }
-            }
+            fight(hero, unit);
         } else {
             System.out.println(unit.getUnitType() + " напал на " + hero.getName() + "а");
-
-            while (hero.isAlive() && unit.isAlive()) {
-                tryToKick(unit, hero);
-                if (hero.isAlive()) {
-                    tryToKick(hero, unit);
-                }
-            }
+            fight(unit, hero);
         }
 
         if (hero.isAlive()) {
             System.out.println(hero.getName() + " победил!");
+            hero.changeExperience(unit.getExperience());
+            hero.changeGold(unit.getExperience());
         } else {
             System.out.println(unit.getName() + " победил!");
+        }
+    }
+
+    private void fight(Unit u1, Unit u2) {
+        while (u1.isAlive() && u2.isAlive()) {
+            tryToKick(u1, u2);
+            if (u2.isAlive()) {
+                tryToKick(u2, u1);
+            }
         }
     }
 
@@ -56,11 +55,6 @@ public class Fight implements Runnable {
             }
 
             System.out.println(u1.getName() + " Shapalak! " + kick);
-
-            if (!u2.isAlive()) {
-                int monsterExp = u2.getExperience();
-                u1.changeExperience(monsterExp);
-            }
         } else {
             System.out.println(u1.getName() + " Miss!");
         }
