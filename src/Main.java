@@ -1,10 +1,15 @@
 import game.Deal;
 import game.Fight;
-import units.Hero;
+import units.*;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    private static Dealer dealer = new Dealer("Мэри Кей Эш");
+    private static Goblin goblin;
+    private static Skeleton skeleton;
+
     public static void main(String[] args) {
         boolean gameIsRun = true;
 
@@ -13,11 +18,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Hero hero = new Hero(sc.nextLine());
 
-        showUnitParam(hero);
+        showHeroParam(hero);
         showMainMenu();
 
         while (hero.isAlive() && gameIsRun) {
-            Thread fight = new Thread(new Fight());
+            Thread fight = new Thread(new Fight(hero, getMonster()));
             Thread deal = new Thread(new Deal());
 
             switch (getVal()) {
@@ -33,31 +38,39 @@ public class Main {
                 throw new RuntimeException(e);
             }
 
-            showMainMenu();
+            showHeroParam(hero);
+
+            if (hero.isAlive()) {
+                showMainMenu();
+            }
         }
+    }
+
+    private static Unit getMonster() {
+        goblin = new Goblin("Дмитрий Пучков");
+        skeleton = new Skeleton("Маколей Калкин");
+
+        return (new Random().nextInt(2) > 0) ? goblin : skeleton;
     }
 
     private static int getVal() {
         int val = 0;
-
         Scanner sc = new Scanner(System.in);
-
         try {
             val = sc.nextInt();
         } catch (Exception ignored) {
         }
-
         return val;
     }
 
     private static void showHelloMessage() {
         System.out.print("""
-                Добро пожаловать в игру "Мордоворот"!
+                Добро пожаловать в игру "Shapalak beru"!
                 Для начала создайте и назовите героя:
                 """);
     }
 
-    private static void showUnitParam(Hero hero) {
+    private static void showHeroParam(Hero hero) {
         System.out.println("Создан " + hero.getUnitType().toLowerCase() + ": " + hero.getName()
                 + "; жизнь: " + hero.getHealth()
                 + "; ловкость: " + hero.getAgility()

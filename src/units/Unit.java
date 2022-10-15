@@ -2,8 +2,9 @@ package units;
 
 import java.util.Random;
 
-abstract class Unit {
+public abstract class Unit {
     private final String NAME;
+    private String unitType;
     private int health;
     private int agility;
     private int power;
@@ -20,7 +21,7 @@ abstract class Unit {
     private final int MIN_EXPERIENCE = 10;
     private final int MAX_EXPERIENCE = 300;
 
-    public Unit(String name, int health, int agility, int power, int experience) {
+    public Unit(String name, int health, int agility, int power, int experience, String unitType) {
         if (name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH) {
             NAME = name;
         } else {
@@ -31,6 +32,7 @@ abstract class Unit {
         this.agility = agility;
         this.power = power;
         this.experience = experience;
+        this.unitType = unitType;
         isAlive = true;
     }
 
@@ -77,36 +79,12 @@ abstract class Unit {
         this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
     }
 
-    public boolean isAlive() {
-        return isAlive;
+    public String getUnitType() {
+        return unitType;
     }
 
-    public void attack(Unit unit) {
-        if (isAlive && unit.isAlive()) {
-            int r1 = new Random().nextInt(100);
-
-            if (agility * 3 > r1) {
-                int r2 = new Random().nextInt(100);
-                int poke;
-
-                if (experience / 100 * 30 > r2) {
-                    poke = power * -2;
-                    unit.changeHealth(poke);
-
-                } else {
-                    poke = power * -1;
-                    unit.changeHealth(poke);
-                }
-
-                System.out.println("Shapalak! " + poke + "\n");
-
-                if (!unit.isAlive()) {
-                    experience += unit.getExperience() / 10;
-                }
-            } else {
-                System.out.println("Miss!" + "\n");
-            }
-        }
+    public boolean isAlive() {
+        return isAlive;
     }
 
     private int setLimits(int min, int max, int val) {
@@ -118,13 +96,13 @@ abstract class Unit {
         return val;
     }
 
-    @Override
-    public String toString() {
-        return "Name='" + NAME + "'\n" +
-                "health=" + health + '\n' +
-                "agility=" + agility + '\n' +
-                "power=" + power + '\n' +
-                "experience=" + experience + '\n' +
-                "isAlive=" + isAlive + '\n';
-    }
+//    @Override
+//    public String toString() {
+//        return "Name='" + NAME + "'\n" +
+//                "health=" + health + '\n' +
+//                "agility=" + agility + '\n' +
+//                "power=" + power + '\n' +
+//                "experience=" + experience + '\n' +
+//                "isAlive=" + isAlive + '\n';
+//    }
 }
