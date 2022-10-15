@@ -9,11 +9,18 @@ abstract class Unit {
     private int power;
     private int experience;
     private boolean isAlive;
+    private final int MIN_NAME_LENGTH = 1;
+    private final int MAX_NAME_LENGTH = 50;
+    private final int MIN_HEALTH = 0;
+    private final int MAX_HEALTH = 100;
+    private final int MIN_AGILITY = 10;
+    private final int MAX_AGILITY = 30;
+    private final int MIN_POWER = 10;
+    private final int MAX_POWER = 30;
+    private final int MIN_EXPERIENCE = 10;
+    private final int MAX_EXPERIENCE = 300;
 
     public Unit(String name, int health, int agility, int power, int experience) {
-        int MIN_NAME_LENGTH = 1;
-        int MAX_NAME_LENGTH = 50;
-
         if (name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH) {
             NAME = name;
         } else {
@@ -36,15 +43,10 @@ abstract class Unit {
     }
 
     public void changeHealth(int health) {
-        int MIN_HEALTH = 0;
-        int MAX_HEALTH = 100;
-
         this.health += health;
-
         if (this.health <= MIN_HEALTH) {
             isAlive = false;
         }
-
         this.health = setLimits(MIN_HEALTH, MAX_HEALTH, this.health);
     }
 
@@ -53,9 +55,6 @@ abstract class Unit {
     }
 
     public void changeAgility(int agility) {
-        int MIN_AGILITY = 10;
-        int MAX_AGILITY = 30;
-
         this.agility += agility;
         this.agility = setLimits(MIN_AGILITY, MAX_AGILITY, this.agility);
     }
@@ -65,9 +64,6 @@ abstract class Unit {
     }
 
     public void changePower(int power) {
-        int MIN_POWER = 10;
-        int MAX_POWER = 30;
-
         this.power += power;
         this.power = setLimits(MIN_POWER, MAX_POWER, this.power);
     }
@@ -77,9 +73,6 @@ abstract class Unit {
     }
 
     public void changeExperience(int experience) {
-        int MIN_EXPERIENCE = 10;
-        int MAX_EXPERIENCE = 300;
-
         this.experience += experience;
         this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
     }
@@ -94,18 +87,18 @@ abstract class Unit {
 
             if (agility * 3 > r1) {
                 int r2 = new Random().nextInt(100);
-
                 int poke;
 
                 if (experience / 100 * 30 > r2) {
-                    unit.changeHealth(-power * 2);
-                    poke = power * 2;
+                    poke = power * -2;
+                    unit.changeHealth(poke);
+
                 } else {
-                    unit.changeHealth(-power);
-                    poke = power;
+                    poke = power * -1;
+                    unit.changeHealth(poke);
                 }
 
-                System.out.println("Poke! -" + poke + "\n");
+                System.out.println("Shapalak! " + poke + "\n");
 
                 if (!unit.isAlive()) {
                     experience += unit.getExperience() / 10;
