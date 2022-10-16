@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Final commit 7 - set balance">
+    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Final commit 8 - set balance">
       <change beforePath="$PROJECT_DIR$/src/game/Deal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Deal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,7 @@
       <workItem from="1665825568115" duration="10458000" />
       <workItem from="1665889011325" duration="25071000" />
       <workItem from="1665918134769" duration="609000" />
-      <workItem from="1665923428781" duration="3017000" />
+      <workItem from="1665923428781" duration="3418000" />
     </task>
     <task id="LOCAL-00001" summary="Class ready: Unit, Hero, Goblin, Skeleton">
       <created>1665115965662</created>
@@ -216,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665926267795</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Final commit 8 - set balance">
+      <created>1665926473286</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665926473286</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +260,7 @@
     <MESSAGE value="Final commit 5 - set balance" />
     <MESSAGE value="Final commit 6 - set balance" />
     <MESSAGE value="Final commit 7 - set balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final commit 7 - set balance" />
+    <MESSAGE value="Final commit 8 - set balance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final commit 8 - set balance" />
   </component>
 </project>

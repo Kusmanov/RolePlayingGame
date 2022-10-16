@@ -53,8 +53,8 @@ public class Deal implements Runnable {
     private void buyPower() {
         if (hero.getGold() >= 10) {
             hero.changeGold(-10);
-            hero.changePower(2);
-            System.out.println("power: +2");
+            hero.changePower(4);
+            System.out.println("power: +4");
         } else {
             System.out.println("Золото и опыт можно заработать в лесу");
         }
