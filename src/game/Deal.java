@@ -33,7 +33,7 @@ public class Deal implements Runnable {
     private void buyHealth() {
         if (hero.getGold() >= 10) {
             hero.changeGold(-10);
-            hero.changeHealth(10);
+            hero.changeHealth(30);
             System.out.println("health: +10");
         } else {
             System.out.println("Золото и опыт можно заработать в лесу");
