@@ -27,8 +27,8 @@ public class Fight implements Runnable {
         if (hero.isAlive()) {
             int tempExp = hero.getExperience();
             int tempGold = hero.getGold();
-            hero.changeExperience(monster.getExperience());
-            hero.changeGold(monster.getExperience());
+            hero.changeExperience(monster.getExperience() / 10);
+            hero.changeGold(monster.getExperience() / 10);
             System.out.println(hero.getName() + " победил!");
             System.out.println("Exp: +" + (hero.getExperience() - tempExp) + ", Gold: +" + (hero.getGold() - tempGold));
         } else {

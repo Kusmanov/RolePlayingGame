@@ -1,18 +1,10 @@
 package units;
 
+import config.UnitConfig;
+
 public abstract class Unit {
     private final String NAME;
     private final String UNIT_TYPE;
-    private final int MIN_NAME_LENGTH = 1;
-    private final int MAX_NAME_LENGTH = 50;
-    private final int MIN_HEALTH = 0;
-    private final int MAX_HEALTH = 100;
-    private final int MIN_AGILITY = 10;
-    private final int MAX_AGILITY = 30;
-    private final int MIN_POWER = 10;
-    private final int MAX_POWER = 30;
-    private final int MIN_EXPERIENCE = 10;
-    private final int MAX_EXPERIENCE = 300;
     private int health;
     private int agility;
     private int power;
@@ -21,6 +13,9 @@ public abstract class Unit {
 
 
     public Unit(String name, int health, int agility, int power, int experience, String UNIT_TYPE) {
+        final int MIN_NAME_LENGTH = Integer.parseInt(UnitConfig.unitConfig("MIN_NAME_LENGTH"));
+        final int MAX_NAME_LENGTH = Integer.parseInt(UnitConfig.unitConfig("MAX_NAME_LENGTH"));
+
         if (name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH) {
             NAME = name;
         } else {
@@ -44,6 +39,9 @@ public abstract class Unit {
     }
 
     public void changeHealth(int health) {
+        final int MIN_HEALTH = Integer.parseInt(config.UnitConfig.unitConfig("MIN_HEALTH"));
+        final int MAX_HEALTH = Integer.parseInt(config.UnitConfig.unitConfig("MAX_HEALTH"));
+
         this.health += health;
         if (this.health <= MIN_HEALTH) {
             isAlive = false;
@@ -56,6 +54,9 @@ public abstract class Unit {
     }
 
     public void changeAgility(int agility) {
+        final int MIN_AGILITY = Integer.parseInt(config.UnitConfig.unitConfig("MIN_AGILITY"));
+        final int MAX_AGILITY = Integer.parseInt(config.UnitConfig.unitConfig("MAX_AGILITY"));
+
         this.agility += agility;
         this.agility = setLimits(MIN_AGILITY, MAX_AGILITY, this.agility);
     }
@@ -65,6 +66,9 @@ public abstract class Unit {
     }
 
     public void changePower(int power) {
+        final int MIN_POWER = Integer.parseInt(config.UnitConfig.unitConfig("MIN_POWER"));
+        final int MAX_POWER = Integer.parseInt(config.UnitConfig.unitConfig("MAX_POWER"));
+
         this.power += power;
         this.power = setLimits(MIN_POWER, MAX_POWER, this.power);
     }
@@ -74,6 +78,9 @@ public abstract class Unit {
     }
 
     public void changeExperience(int experience) {
+        final int MIN_EXPERIENCE = Integer.parseInt(config.UnitConfig.unitConfig("MIN_EXPERIENCE"));
+        final int MAX_EXPERIENCE = Integer.parseInt(config.UnitConfig.unitConfig("MAX_EXPERIENCE"));
+
         this.experience += experience;
         this.experience = setLimits(MIN_EXPERIENCE, MAX_EXPERIENCE, this.experience);
     }

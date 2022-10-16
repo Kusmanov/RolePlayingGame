@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Added change in difficulty depending on the level of the hero">
+    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Balance established">
+      <change afterPath="$PROJECT_DIR$/src/Config.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/UnitConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Goblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/units/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Skeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Fight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/units/Dealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Dealer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Unit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +42,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.UnitConfig">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="RolePlayingGame" />
@@ -49,8 +50,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UnitConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="config.UnitConfig" />
+      <module name="RolePlayingGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UnitConfig" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -70,7 +85,7 @@
       <workItem from="1665582536054" duration="4323000" />
       <workItem from="1665818260548" duration="5950000" />
       <workItem from="1665825568115" duration="10458000" />
-      <workItem from="1665889011325" duration="9411000" />
+      <workItem from="1665889011325" duration="16129000" />
     </task>
     <task id="LOCAL-00001" summary="Class ready: Unit, Hero, Goblin, Skeleton">
       <created>1665115965662</created>
@@ -142,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665894672695</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Balance established">
+      <created>1665898655017</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665898655017</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +192,7 @@
     <MESSAGE value="Class fight is ready" />
     <MESSAGE value="Simplified class Fight" />
     <MESSAGE value="Added change in difficulty depending on the level of the hero" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added change in difficulty depending on the level of the hero" />
+    <MESSAGE value="Balance established" />
+    <option name="LAST_COMMIT_MESSAGE" value="Balance established" />
   </component>
 </project>

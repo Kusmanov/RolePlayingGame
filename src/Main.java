@@ -68,7 +68,7 @@ public class Main {
         int val = 0;
         try {
             val = new Scanner(System.in).nextInt();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return val;
     }
