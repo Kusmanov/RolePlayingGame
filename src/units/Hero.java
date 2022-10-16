@@ -1,7 +1,7 @@
 package units;
 
 public class Hero extends Unit {
-    private int gold = 0;
+    private int gold = 20;
 
     public Hero(String name) {
         super(name, 60, 10, 10, 100, "Герой");
