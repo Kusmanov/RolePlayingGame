@@ -7,29 +7,32 @@ import java.util.Random;
 
 public class Fight implements Runnable {
     Hero hero;
-    Unit unit;
+    Unit monster;
 
-    public Fight(Hero hero, Unit unit) {
+    public Fight(Hero hero, Unit monster) {
         this.hero = hero;
-        this.unit = unit;
+        this.monster = monster;
     }
 
     @Override
     public void run() {
         if (new Random().nextInt(2) > 0) { //вероятность: кто первым нанесет урон?
-            System.out.println(hero.getName() + " встретил " + unit.getUnitType().toLowerCase() + "а");
-            fight(hero, unit);
+            System.out.println(hero.getName() + " встретил " + monster.getUnitType().toLowerCase() + "а");
+            fight(hero, monster);
         } else {
-            System.out.println(unit.getUnitType() + " напал на " + hero.getName() + "а");
-            fight(unit, hero);
+            System.out.println(monster.getUnitType() + " напал на " + hero.getName() + "а");
+            fight(monster, hero);
         }
 
         if (hero.isAlive()) {
+            int tempExp = hero.getExperience();
+            int tempGold = hero.getGold();
+            hero.changeExperience(monster.getExperience());
+            hero.changeGold(monster.getExperience());
             System.out.println(hero.getName() + " победил!");
-            hero.changeExperience(unit.getExperience());
-            hero.changeGold(unit.getExperience());
+            System.out.println("Exp: +" + (hero.getExperience() - tempExp) + ", Gold: +" + (hero.getGold() - tempGold));
         } else {
-            System.out.println(unit.getName() + " победил!");
+            System.out.println(monster.getName() + " победил!");
         }
     }
 
@@ -45,18 +48,17 @@ public class Fight implements Runnable {
     private void tryToKick(Unit u1, Unit u2) {
         if (u1.getAgility() * 3 > new Random().nextInt(100)) { //вероятность, что удар будет нанесен
             int kick;
-
             if (u1.getExperience() / 100 * 30 > new Random().nextInt(100)) { //вероятность, что будет двойной урон
                 kick = u1.getPower() * -2;
                 u2.changeHealth(kick);
+                System.out.println(u1.getName() + ": Krit shapalaked " + kick);
             } else {
                 kick = u1.getPower() * -1;
                 u2.changeHealth(kick);
+                System.out.println(u1.getName() + ": Shapalaked " + kick);
             }
-
-            System.out.println(u1.getName() + " Shapalak! " + kick);
         } else {
-            System.out.println(u1.getName() + " Miss!");
+            System.out.println(u1.getName() + ": Missed");
         }
     }
 }

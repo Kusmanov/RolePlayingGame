@@ -1,5 +1,4 @@
-import game.Deal;
-import game.Fight;
+import game.*;
 import units.*;
 
 import java.util.Random;
@@ -16,12 +15,14 @@ public class Main {
         Hero hero = new Hero(sc.nextLine());
         Dealer dealer = new Dealer("Мэри Кей Эш");
 
-        showHeroParam(hero);
+        showUnitParam(hero);
         showMainMenu();
 
         while (hero.isAlive() && gameIsRun) {
+            Unit monster = getMonster(hero);
+
             Thread deal = new Thread(new Deal());
-            Thread fight = new Thread(new Fight(hero, getMonster()));
+            Thread fight = new Thread(new Fight(hero, monster));
 
             switch (getVal()) {
                 case 1 -> deal.start();
@@ -37,20 +38,29 @@ public class Main {
             }
 
             if (gameIsRun) {
-                showHeroParam(hero);
+                showUnitParam(hero);
+                showUnitParam(monster);
 
                 if (hero.isAlive()) {
                     showMainMenu();
+                } else {
+                    System.out.println("Game over");
                 }
             }
         }
     }
 
-    private static Unit getMonster() {
-        Goblin goblin = new Goblin("Дмитрий Пучков");
-        Skeleton skeleton = new Skeleton("Маколей Калкин");
+    private static Unit getMonster(Hero hero) {
+        int multiplier = 0;
+        switch (hero.getExperience() % 100) {
+            case 0 -> multiplier = 1;
+            case 1 -> multiplier = 2;
+            case 2 -> multiplier = 3;
+        }
 
-        return (new Random().nextInt(2) > 0) ? goblin : skeleton;
+        return (new Random().nextInt(2) > 0)
+                ? new Goblin("Дмитрий Пучков", multiplier)
+                : new Skeleton("Маколей Калкин", multiplier);
     }
 
     private static int getVal() {
@@ -58,7 +68,6 @@ public class Main {
         try {
             val = new Scanner(System.in).nextInt();
         } catch (Exception e) {
-            System.out.println("Введите число: от 1 до 3");
         }
         return val;
     }
@@ -70,13 +79,18 @@ public class Main {
                 """);
     }
 
-    private static void showHeroParam(Hero hero) {
-        System.out.println("Герой: " + hero.getName()
-                + "; жизнь: " + hero.getHealth()
-                + "; ловкость: " + hero.getAgility()
-                + "; сила: " + hero.getPower()
-                + "; опыт: " + hero.getExperience()
-                + "; золото: " + hero.getGold());
+    private static void showUnitParam(Unit unit) {
+        System.out.print("Герой: " + unit.getName()
+                + "; жизнь: " + unit.getHealth()
+                + "; ловкость: " + unit.getAgility()
+                + "; сила: " + unit.getPower()
+                + "; опыт: " + unit.getExperience());
+        try {
+            Hero hero = (Hero) unit;
+            System.out.println("; золото: " + hero.getGold());
+        } catch (Exception e) {
+            System.out.println();
+        }
     }
 
     private static void showMainMenu() {

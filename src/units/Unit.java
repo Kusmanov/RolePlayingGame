@@ -1,15 +1,8 @@
 package units;
 
-import java.util.Random;
-
 public abstract class Unit {
     private final String NAME;
-    private String unitType;
-    private int health;
-    private int agility;
-    private int power;
-    private int experience;
-    private boolean isAlive;
+    private final String UNIT_TYPE;
     private final int MIN_NAME_LENGTH = 1;
     private final int MAX_NAME_LENGTH = 50;
     private final int MIN_HEALTH = 0;
@@ -20,19 +13,25 @@ public abstract class Unit {
     private final int MAX_POWER = 30;
     private final int MIN_EXPERIENCE = 10;
     private final int MAX_EXPERIENCE = 300;
+    private int health;
+    private int agility;
+    private int power;
+    private int experience;
+    private boolean isAlive;
 
-    public Unit(String name, int health, int agility, int power, int experience, String unitType) {
+
+    public Unit(String name, int health, int agility, int power, int experience, String UNIT_TYPE) {
         if (name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH) {
             NAME = name;
         } else {
             throw new IllegalArgumentException();
         }
+        this.UNIT_TYPE = UNIT_TYPE;
 
         this.health = health;
         this.agility = agility;
         this.power = power;
         this.experience = experience;
-        this.unitType = unitType;
         isAlive = true;
     }
 
@@ -80,7 +79,7 @@ public abstract class Unit {
     }
 
     public String getUnitType() {
-        return unitType;
+        return UNIT_TYPE;
     }
 
     public boolean isAlive() {
