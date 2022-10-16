@@ -34,7 +34,7 @@ public class Deal implements Runnable {
         if (hero.getGold() >= 10) {
             hero.changeGold(-10);
             hero.changeHealth(30);
-            System.out.println("health: +10");
+            System.out.println("health: +30");
         } else {
             System.out.println("Золото и опыт можно заработать в лесу");
         }
@@ -43,8 +43,8 @@ public class Deal implements Runnable {
     private void buyAgility() {
         if (hero.getGold() >= 10) {
             hero.changeGold(-10);
-            hero.changeAgility(1);
-            System.out.println("agility: +10");
+            hero.changeAgility(2);
+            System.out.println("agility: +2");
         } else {
             System.out.println("Золото и опыт можно заработать в лесу");
         }
@@ -53,8 +53,8 @@ public class Deal implements Runnable {
     private void buyPower() {
         if (hero.getGold() >= 10) {
             hero.changeGold(-10);
-            hero.changePower(1);
-            System.out.println("power: +10");
+            hero.changePower(2);
+            System.out.println("power: +2");
         } else {
             System.out.println("Золото и опыт можно заработать в лесу");
         }
