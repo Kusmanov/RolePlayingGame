@@ -52,12 +52,13 @@ public class Main {
 
     private static Unit getMonster(Hero hero) {
         int multiplier = 0;
-        switch (hero.getExperience() % 100) {
-            case 0 -> multiplier = 1;
-            case 1 -> multiplier = 2;
-            case 2 -> multiplier = 3;
+        if (hero.getExperience() / 100 == 1) {
+            multiplier = 1;
+        } else if (hero.getExperience() / 100 == 2) {
+            multiplier = 2;
+        } else if (hero.getExperience() / 100 == 3) {
+            multiplier = 3;
         }
-
         return (new Random().nextInt(2) > 0)
                 ? new Goblin("Дмитрий Пучков", multiplier)
                 : new Skeleton("Маколей Калкин", multiplier);

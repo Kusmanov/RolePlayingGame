@@ -89,19 +89,8 @@ public abstract class Unit {
     private int setLimits(int min, int max, int val) {
         if (val < min) {
             return min;
-        } else if (val > max) {
-            return max;
         }
-        return val;
+        return Math.min(val, max);
     }
 
-//    @Override
-//    public String toString() {
-//        return "Name='" + NAME + "'\n" +
-//                "health=" + health + '\n' +
-//                "agility=" + agility + '\n' +
-//                "power=" + power + '\n' +
-//                "experience=" + experience + '\n' +
-//                "isAlive=" + isAlive + '\n';
-//    }
 }
