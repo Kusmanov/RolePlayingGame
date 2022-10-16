@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Final commit 4 - set balance">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ff18dff3-16e6-4f90-81a3-041f4ef9eb04" name="Changes" comment="Final commit 5 - set balance">
       <change beforePath="$PROJECT_DIR$/src/units/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Goblin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/units/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/units/Skeleton.java" afterDir="false" />
     </list>
@@ -83,7 +82,7 @@
       <workItem from="1665825568115" duration="10458000" />
       <workItem from="1665889011325" duration="25071000" />
       <workItem from="1665918134769" duration="609000" />
-      <workItem from="1665923428781" duration="2149000" />
+      <workItem from="1665923428781" duration="2545000" />
     </task>
     <task id="LOCAL-00001" summary="Class ready: Unit, Hero, Goblin, Skeleton">
       <created>1665115965662</created>
@@ -197,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665924906766</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Final commit 5 - set balance">
+      <created>1665925600538</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1665925600538</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +237,7 @@
     <MESSAGE value="Final commit 2" />
     <MESSAGE value="Final commit 3 - set balance" />
     <MESSAGE value="Final commit 4 - set balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final commit 4 - set balance" />
+    <MESSAGE value="Final commit 5 - set balance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final commit 5 - set balance" />
   </component>
 </project>

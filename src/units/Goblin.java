@@ -2,7 +2,7 @@ package units;
 
 public class Goblin extends Unit {
     public Goblin(String name, int multiplier) {
-        super(name, 15, 10, 10, 60, "Монстр");
+        super(name, 20, 10, 10, 100, "Монстр");
         this.changeHealth(-this.getHealth() + this.getHealth() * multiplier);
         this.changeAgility(-this.getAgility() + this.getAgility() * multiplier);
         this.changePower(-this.getPower() + this.getPower() * multiplier);
