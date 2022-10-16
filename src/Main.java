@@ -6,22 +6,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         boolean gameIsRun = true;
 
         showHelloMessage();
 
         Scanner sc = new Scanner(System.in);
         Hero hero = new Hero(sc.nextLine());
-        Dealer dealer = new Dealer("Мэри Кей Эш");
 
-        showUnitParam(hero);
-        showMainMenu();
+        System.out.println("Создан герой " + hero.getName() + "!");
 
         while (hero.isAlive() && gameIsRun) {
+            showMainMenu();
+
             Unit monster = getMonster(hero);
 
-            Thread deal = new Thread(new Deal());
+            Thread deal = new Thread(new Deal(hero));
             Thread fight = new Thread(new Fight(hero, monster));
 
             switch (getVal()) {
@@ -36,18 +35,9 @@ public class Main {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
-            if (gameIsRun) {
-                showUnitParam(hero);
-                showUnitParam(monster);
-
-                if (hero.isAlive()) {
-                    showMainMenu();
-                } else {
-                    System.out.println("Game over");
-                }
-            }
         }
+        System.out.println("УБИТО МОНСТРОВ: " + Fight.killedMonsterCount);
+        System.out.println("GAME OVER");
     }
 
     private static Unit getMonster(Hero hero) {
@@ -60,8 +50,8 @@ public class Main {
             multiplier = 3;
         }
         return (new Random().nextInt(2) > 0)
-                ? new Goblin("Дмитрий Пучков", multiplier)
-                : new Skeleton("Маколей Калкин", multiplier);
+                ? new Goblin("Гоблин", multiplier)
+                : new Skeleton("Скелет", multiplier);
     }
 
     private static int getVal() {
@@ -80,26 +70,12 @@ public class Main {
                 """);
     }
 
-    private static void showUnitParam(Unit unit) {
-        System.out.print("Герой: " + unit.getName()
-                + "; жизнь: " + unit.getHealth()
-                + "; ловкость: " + unit.getAgility()
-                + "; сила: " + unit.getPower()
-                + "; опыт: " + unit.getExperience());
-        try {
-            Hero hero = (Hero) unit;
-            System.out.println("; золото: " + hero.getGold());
-        } catch (Exception e) {
-            System.out.println();
-        }
-    }
-
     private static void showMainMenu() {
         System.out.print("""
                 Куда вы хотите пойти?
-                1 - к торговцу;
-                2 - в тёмный лес;
-                3 - на выход.
+                1 - к торговцу
+                2 - в тёмный лес
+                3 - на выход
                 """);
     }
 }
